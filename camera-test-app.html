@@ -1,14 +1,22 @@
 <head>
-  <title>camera-test-app</title>
+  <title>Camera Test App</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  <header>
+    <p>Click on your picture to take a snapshot</p>
+  </header>
+  {{> pictures}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="pictures">
+  <ul>
+    <li class="main-picture">
+    <video autoplay height="150px"></video>
+    <canvas style="display:none;"></canvas>
+    </li>
+    {{#each pictures}}
+      <li><img src="{{url}}" /></li>
+    {{/each}}
+  </ul>
 </template>
